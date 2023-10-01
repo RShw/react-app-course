@@ -1,10 +1,11 @@
+import React, {useState} from "react";
 import { styles } from "./styles"
 import ListImage from "./components/ListImage";
 import FormImage from "./components/FormImage";
 
 function App() {
 
-  const listImage = [
+  const initialState = [
       {
           title: "Reprehenderit nisi nulla duis incididunt laboris esse ea aliquip occaecat.",
           description: "Fugiat eu deserunt irure esse cillum enim culpa ut consectetur consequat reprehenderit cillum voluptate incididunt. Mollit nulla adipisicing esse in Lorem amet duis dolore commodo. Quis sint nostrud voluptate elit."
@@ -19,10 +20,12 @@ function App() {
       },
   ]
 
+  const [data, setData] = useState(initialState)
+
   return (
     <div style={styles.container}>
-      <FormImage />
-      <ListImage data={listImage}/>
+      <FormImage setData={setData} data={data}/>
+      <ListImage data={data} setData={setData}/>
     </div>
   );
 }

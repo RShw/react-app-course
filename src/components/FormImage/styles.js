@@ -44,5 +44,8 @@ export const styles = {
     buttonImportant: {
         backgroundColor: "#aadafa",
         color: "#181818",
+    },
+    buttonDisable: {
+        opacity: "0.5"
     }
 }
