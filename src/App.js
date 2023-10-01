@@ -3,6 +3,10 @@ import { styles } from "./styles"
 import ListImage from "./components/ListImage";
 import FormImage from "./components/FormImage";
 
+//Import for Basix Example of useContext
+import UserProvider from "./ContextProviderExample/hooks/UserContext";
+import DisplayUser from "./ContextProviderExample/components/DisplayUser";
+
 function App() {
 
   const initialState = [
@@ -26,6 +30,11 @@ function App() {
     <div style={styles.container}>
       <FormImage setData={setData} data={data}/>
       <ListImage data={data} setData={setData}/>
+
+      {/* Example of basic Context Provider */}
+      <UserProvider>
+        <DisplayUser/>
+      </UserProvider>
     </div>
   );
 }
