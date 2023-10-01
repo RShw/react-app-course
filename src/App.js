@@ -1,5 +1,6 @@
 import { styles } from "./styles"
 import ListImage from "./components/ListImage";
+import FormImage from "./components/FormImage";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <div style={styles.container}>
+      <FormImage />
       <ListImage data={listImage}/>
     </div>
   );
