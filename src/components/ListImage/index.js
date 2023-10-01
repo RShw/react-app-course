@@ -1,11 +1,11 @@
 import React from 'react'
 import { styles } from './styles'
 
-export default function ListImage(props) {
+export default function ListImage({data}) {
 
     return (
         <div>
-            {props.data.map(item => (
+            {data.map(item => (
                 <div>
                     <img style={styles.images} src={item.imageUrl} alt={item.alt}/>
                     <h3 style={styles.title}>{item.title}</h3>
