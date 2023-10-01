@@ -1,16 +1,13 @@
 import React from 'react'
 import { styles } from './styles'
+import ListImageItem from '../ListImageItem'
 
 export default function ListImage({data}) {
 
     return (
         <div>
             {data.map(item => (
-                <div>
-                    <img style={styles.images} src={item.imageUrl} alt={item.alt}/>
-                    <h3 style={styles.title}>{item.title}</h3>
-                    <p style={styles.description}>{item.description}</p>
-                </div>
+                <ListImageItem imageUrl={item.imageUrl} alt={item.alt} title={item.title} description={item.description} />
             ))}
         </div>
     )
