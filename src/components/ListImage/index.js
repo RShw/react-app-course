@@ -6,12 +6,13 @@ import WrapperComponent from '../WrapperComponent'
 export default function ListImage({data}) {
 
     return (
-        <div>
+        <>
+            <h2 style={styles.title}>Do veniam do ut aliqua deserunt exercitation cillum nisi.</h2>
             <WrapperComponent>
                 {data.map(item => (
                     <ListImageItem imageUrl={item.imageUrl} alt={item.alt} title={item.title} description={item.description} />
                 ))}
             </WrapperComponent>
-        </div>
+        </>
     )
 }
