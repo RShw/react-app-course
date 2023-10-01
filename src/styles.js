@@ -6,9 +6,6 @@ export const styles = {
     justifyContent: "center", 
     alignItems: "center",
     backgroundColor: "#181818"
-  },
-  text: {
-    color: "#aadafa"
   }
 }
   
