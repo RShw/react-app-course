@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { styles } from './styles'
 import WrapperComponent from '../WrapperComponent'
 import { ImageContext } from '../../hooks/ImageProvider'
+import { DeleteImage } from '../../actions/Actions'
 
 export default function ListImageItem({
   title, 
@@ -12,7 +13,7 @@ export default function ListImageItem({
   const {dispatch} = useContext(ImageContext)
 
   function onButtonClick(){
-    dispatch({type: "deleteImage", payload: {index}})
+    dispatch(DeleteImage({index}))
   }
 
   return (

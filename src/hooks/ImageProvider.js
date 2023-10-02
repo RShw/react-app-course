@@ -1,4 +1,5 @@
-import React, {createContext, useReducer, useState} from 'react'
+import React, {createContext, useReducer} from 'react'
+import { ACTION_TYPE } from '../actions/Actions'
 
 export const ImageContext = createContext()
 
@@ -21,7 +22,7 @@ export default function ImageProvider({children}) {
 
     const reducer = (state, action) => {
         switch(action.type){
-            case 'addImage':
+            case ACTION_TYPE.ADD_IMAGE:
                 return [
                     ...state,
                     ...[{
@@ -29,7 +30,7 @@ export default function ImageProvider({children}) {
                       description: action.payload.description
                     }]
                   ]
-            case 'deleteImage':
+            case ACTION_TYPE.DELETE_IMAGE:
                 const tempState = [...state]
                 tempState.splice(action.payload.index, 1)
                 return tempState

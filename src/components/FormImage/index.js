@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { styles } from './styles'
 import { ImageContext } from '../../hooks/ImageProvider'
+import { AddImage } from '../../actions/Actions'
 
 export default function FormImage() {
 
@@ -30,7 +31,7 @@ export default function FormImage() {
   function onSubmit(e){
     e.preventDefault()
     //remplace la fonction par celle du contexte
-    dispatch({type: "addImage", payload: {title, description}})
+    dispatch(AddImage({title, description}))
     setDescription("")
     setTitle("")
   }
