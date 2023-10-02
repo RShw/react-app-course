@@ -5,6 +5,8 @@ import FormImage from "./components/FormImage";
 import { Provider } from "react-redux";
 import { store } from "./store.js";
 
+import { fetchKanye } from "./FetchExample";
+
 // import Counter from "./components/Counter";
 
 //Import for Basix Example of useContext
