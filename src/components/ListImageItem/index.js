@@ -1,18 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { styles } from './styles'
 import WrapperComponent from '../WrapperComponent'
+import { ImageContext } from '../../hooks/ImageProvider'
 
 export default function ListImageItem({
   title, 
   description, 
-  index, 
-  data,
-  setData
+  index,
 }) {
 
+  const {deleteImage} = useContext(ImageContext)
+
   function onButtonClick(){
-    data.splice(index, 1)
-    setData([...data])
+    deleteImage(index)
   }
 
   return (

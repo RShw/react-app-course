@@ -1,14 +1,14 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import { styles } from './styles'
+import { ImageContext } from '../../hooks/ImageProvider'
 
-export default function FormImage({
-  setData,
-  data,
-}) {
+export default function FormImage() {
 
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [isButtonActive, setIsButtonActive] = useState(false)
+
+  const {addImage} = useContext(ImageContext)
 
   useEffect(() => {
     title && description ? setIsButtonActive(true) : setIsButtonActive(false)
@@ -29,13 +29,8 @@ export default function FormImage({
 
   function onSubmit(e){
     e.preventDefault()
-    setData([
-      ...data,
-      ...[{
-        title: title,
-        description: description
-      }]
-    ])
+    //remplace la fonction par celle du contexte
+    addImage({title, description})
     setDescription("")
     setTitle("")
   }
