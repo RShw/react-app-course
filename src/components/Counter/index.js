@@ -1,15 +1,25 @@
-import React, {useState} from 'react'
+import React, {useReducer, useState} from 'react'
 import { styles } from './styles'
 
 export default function Counter() {
 
-    ///Hook useState
-    const [count, setCount] = useState(0)
+    const initialState = 0
+
+    const reducer = () => {
+
+    }
+
+    const initializer = () => {
+
+    }
+
+    ///Hook useRecucer
+    const [state, dispatch] = useReducer(reducer, initialState, initializer)
 
   return (
     <>
-        <button onClick={() => setCount(count + 1)}>Add</button>
-        <p style={styles.text}>{count}</p>
+        <button onClick={() => dispatch()}>Add</button>
+        <p style={styles.text}>{state}</p>
     </>
   )
 }
