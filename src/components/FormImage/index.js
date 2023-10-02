@@ -8,7 +8,7 @@ export default function FormImage() {
   const [description, setDescription] = useState("")
   const [isButtonActive, setIsButtonActive] = useState(false)
 
-  const {addImage} = useContext(ImageContext)
+  const {dispatch} = useContext(ImageContext)
 
   useEffect(() => {
     title && description ? setIsButtonActive(true) : setIsButtonActive(false)
@@ -30,7 +30,7 @@ export default function FormImage() {
   function onSubmit(e){
     e.preventDefault()
     //remplace la fonction par celle du contexte
-    addImage({title, description})
+    dispatch({type: "addImage", payload: {title, description}})
     setDescription("")
     setTitle("")
   }

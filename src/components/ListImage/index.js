@@ -6,13 +6,13 @@ import { ImageContext } from '../../hooks/ImageProvider'
 
 export default function ListImage() {
 
-    const {images} = useContext(ImageContext)
+    const {state} = useContext(ImageContext)
 
     return (
         <>
             <h2 style={styles.title}>Do veniam do ut aliqua deserunt exercitation cillum nisi.</h2>
             <WrapperComponent>
-                {images.map((item, index) => (
+                {state.map((item, index) => (
                     <ListImageItem 
                         imageUrl={item.imageUrl} 
                         alt={item.alt} 

@@ -9,10 +9,10 @@ export default function ListImageItem({
   index,
 }) {
 
-  const {deleteImage} = useContext(ImageContext)
+  const {dispatch} = useContext(ImageContext)
 
   function onButtonClick(){
-    deleteImage(index)
+    dispatch({type: "deleteImage", payload: {index}})
   }
 
   return (

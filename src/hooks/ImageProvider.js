@@ -1,4 +1,4 @@
-import React, {createContext, useState} from 'react'
+import React, {createContext, useReducer, useState} from 'react'
 
 export const ImageContext = createContext()
 
@@ -19,26 +19,30 @@ export default function ImageProvider({children}) {
         },
     ]
 
-    const [images, setImages] = useState(initialState)
+    const reducer = (state, action) => {
+        switch(action.type){
+            case 'addImage':
+                return [
+                    ...state,
+                    ...[{
+                      title: action.payload.title,
+                      description: action.payload.description
+                    }]
+                  ]
+            case 'deleteImage':
+                const tempState = [...state]
+                tempState.splice(action.payload.index, 1)
+                return tempState
+            default:
+                return state
 
-    const addImage = ({title, description}) => {
-        setImages([
-          ...images,
-          ...[{
-            title: title,
-            description: description
-          }]
-        ])
+        }
     }
 
-    const deleteImage = (index) => {
-        const tempImages = [...images]
-        tempImages.splice(index, 1)
-        setImages([...tempImages])
-    }
+    const [state, dispatch] = useReducer(reducer, initialState)
 
   return (
-    <ImageContext.Provider value={{images, addImage, deleteImage}}>
+    <ImageContext.Provider value={{state, dispatch}}>
         {children}
     </ImageContext.Provider>
   )

@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div style={styles.container}>
-      <Counter/>
+      {/* <Counter/> */}
       <ImageProvider>
         <FormImage/>
         <ListImage/>
