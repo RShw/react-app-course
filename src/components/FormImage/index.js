@@ -1,7 +1,7 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, {useState, useEffect} from 'react'
 import { styles } from './styles'
-import { ImageContext } from '../../hooks/ImageProvider'
-import { AddImage } from '../../actions/Actions'
+import { useDispatch } from 'react-redux'
+import { addImage } from '../../store.js/features/imagesSlice'
 
 export default function FormImage() {
 
@@ -9,7 +9,15 @@ export default function FormImage() {
   const [description, setDescription] = useState("")
   const [isButtonActive, setIsButtonActive] = useState(false)
 
-  const {dispatch} = useContext(ImageContext)
+  const dispatch = useDispatch()
+
+  function onSubmit(e){
+    e.preventDefault()
+    //remplace la fonction par celle du contexte
+    dispatch(addImage({title, description}))
+    setDescription("")
+    setTitle("")
+  }
 
   useEffect(() => {
     title && description ? setIsButtonActive(true) : setIsButtonActive(false)
@@ -26,14 +34,6 @@ export default function FormImage() {
   function onReset() {
     setTitle("")
     setDescription("")
-  }
-
-  function onSubmit(e){
-    e.preventDefault()
-    //remplace la fonction par celle du contexte
-    dispatch(AddImage({title, description}))
-    setDescription("")
-    setTitle("")
   }
 
   return (

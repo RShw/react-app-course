@@ -1,18 +1,18 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { styles } from './styles'
 import ListImageItem from '../ListImageItem'
 import WrapperComponent from '../WrapperComponent'
-import { ImageContext } from '../../hooks/ImageProvider'
+import { useSelector } from 'react-redux'
 
 export default function ListImage() {
 
-    const {state} = useContext(ImageContext)
+    const images = useSelector((state) => state.images)
 
     return (
         <>
             <h2 style={styles.title}>Do veniam do ut aliqua deserunt exercitation cillum nisi.</h2>
             <WrapperComponent>
-                {state.map((item, index) => (
+                {images.map((item, index) => (
                     <ListImageItem 
                         imageUrl={item.imageUrl} 
                         alt={item.alt} 

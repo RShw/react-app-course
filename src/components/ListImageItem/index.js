@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { styles } from './styles'
 import WrapperComponent from '../WrapperComponent'
-import { ImageContext } from '../../hooks/ImageProvider'
-import { DeleteImage } from '../../actions/Actions'
+import { useDispatch } from 'react-redux'
+import { deleteImage } from '../../store.js/features/imagesSlice'
 
 export default function ListImageItem({
   title, 
@@ -10,10 +10,10 @@ export default function ListImageItem({
   index,
 }) {
 
-  const {dispatch} = useContext(ImageContext)
+  const dispatch = useDispatch()
 
   function onButtonClick(){
-    dispatch(DeleteImage({index}))
+    dispatch(deleteImage({index}))
   }
 
   return (
