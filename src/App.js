@@ -6,8 +6,9 @@ import ImageProvider from "./hooks/ImageProvider";
 // import Counter from "./components/Counter";
 
 //Import for Basix Example of useContext
-// import UserProvider from "./ContextProviderExample/hooks/UserContext";
-// import DisplayUser from "./ContextProviderExample/components/DisplayUser";
+import DisplayUser from "./ContextProviderExample/components/DisplayUser";
+import { Provider } from "react-redux";
+import { store } from "./ContextProviderExample/store.js";
 
 function App() {
 
@@ -20,9 +21,9 @@ function App() {
       </ImageProvider>
 
       {/* Example of basic Context Provider */}
-      {/* <UserProvider>
-        <DisplayUser/>
-      </UserProvider> */}
+      <Provider store={store}>
+          <DisplayUser/>
+      </Provider>
     </div>
   );
 }
